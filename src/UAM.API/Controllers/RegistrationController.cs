@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using UAM.API.Models.Registration;
 
 namespace UAM.API.Controllers
 {
@@ -10,10 +12,10 @@ namespace UAM.API.Controllers
     {
 
         [HttpPost]
-        public async Task<IActionResult> RegisterByEmailAndPassword()
+        public async Task<IActionResult> RegisterByEmailAndPassword(EmailPasswordRegustrationModel model)
         {
 
-            return await Task.FromResult(Ok("pass"));
+            return await Task.FromResult(Ok(JsonConvert.SerializeObject(model)));
         }
     }
 }
